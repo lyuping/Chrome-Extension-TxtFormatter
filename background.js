@@ -7,7 +7,9 @@
 
 function LoadBasic(tab) {
     chrome.tabs.insertCSS(null, { file: 'style.css', "allFrames": true });
-    chrome.tabs.executeScript(null, { file: "txtReader.js" });
+    chrome.tabs.executeScript(null, { file: "txtReader.js" }, function () {
+
+    });
 }
 
 chrome.browserAction.onClicked.addListener(LoadBasic);
@@ -36,22 +38,26 @@ function getCookie(callback) {
 }
 
 function sendContentMessage(data) {
-    console.log('sendContentMessage push data: ' + data);
-    chrome.runtime.sendMessage({ name: 'cookieback', value: data }, function (response) {
-        console.log('sendContentMessage callback');
+    chrome.tabs.query({ active: true }, function (tabs) {
+        //need to use chrome.tabs.sendMessage to send msg to content script 
+        chrome.tabs.sendMessage(tabs[0].id, { name: 'cookieback', value: data }, function (response) {
+            console.log('sendContentMessage callback');
+        });
     });
+    console.log('sendContentMessage push data: ' + data);
 }
 
 function onMessageEvt(message, sender, sendResponse) {
     if (message.name == 'cookie') {
         //cookies
-        setCookie('test123', function (data) {
+        var value = 'test123';
+        setCookie(value, function (data) {
             console.log('set cookie call back');
             getCookie(function (data) {
-                //data.value; 
                 console.log('get cookie call back');
                 sendContentMessage(data.value);
             });
+            return true;
         })
 
         sendResponse({ msg: 'background recevied and cookies setting done' });

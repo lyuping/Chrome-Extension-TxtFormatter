@@ -153,12 +153,13 @@ function bookMark() {
 }
 
 chrome.runtime.onMessage.addListener(
-    function (message, sender, sendResponse) {
+    function (message, sender, respCallback) {
         if (message.name == 'cookieback') {
             alert(message.value);
-            debugger;
         }
-    });
+        return true;
+    }
+);
 
 var init = function () {
     if (!document.getElementById('func')) {
