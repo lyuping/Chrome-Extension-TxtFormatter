@@ -3,10 +3,12 @@
     "description": "Format your local txt file to read",
     "version": "0.1",
     "permissions": [
-        "tabs",
         "cookies",
+        "tabs",
         "file:///*",
-        "file://*/*"
+        "file://*/*",
+        "http://www.google.com.tw/"
+
     ],
 	"icons": { "16": "icon16.png",
           "128": "icon128.png" },

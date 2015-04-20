@@ -1,20 +1,9 @@
-/*
+ï»¿/* 
  * Copyright Yuping Lin 2015
  * 
- * todo: 
- * hook input focus on button
- * pin/unpin at top
- * bookmark(local cookies problem)
- * line-height allow float, need regex
- * chapter regex rule like (1) ¡]¤@¡^
- * title hight light
- * hight light background
- * (no need maybe) background/font color picker
  */
 
 "use strict";
-
-/* BACKGROUND */
 
 function LoadBasic(tab) {
     chrome.tabs.insertCSS(null, { file: 'style.css', "allFrames": true });
@@ -22,3 +11,51 @@ function LoadBasic(tab) {
 }
 
 chrome.browserAction.onClicked.addListener(LoadBasic);
+
+function setCookie(value, callback) {
+    chrome.cookies.set(
+        {
+            url: 'http://www.google.com.tw/',
+            name: 'bookmark',
+            value: value,
+            domain: null
+        }, function (cookies) {
+            callback(cookies);
+        }
+    );
+}
+
+function getCookie(callback) {
+    chrome.cookies.get({
+        url: 'http://www.google.com.tw/',
+        name: 'bookmark',
+    },
+    function (cookies) {
+        callback(cookies);
+    });
+}
+
+function sendContentMessage(data) {
+    console.log('sendContentMessage push data: ' + data);
+    chrome.runtime.sendMessage({ name: 'cookieback', value: data }, function (response) {
+        console.log('sendContentMessage callback');
+    });
+}
+
+function onMessageEvt(message, sender, sendResponse) {
+    if (message.name == 'cookie') {
+        //cookies
+        setCookie('test123', function (data) {
+            console.log('set cookie call back');
+            getCookie(function (data) {
+                //data.value; 
+                console.log('get cookie call back');
+                sendContentMessage(data.value);
+            });
+        })
+
+        sendResponse({ msg: 'background recevied and cookies setting done' });
+    }
+}
+
+chrome.runtime.onMessage.addListener(onMessageEvt);

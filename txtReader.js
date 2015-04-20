@@ -4,20 +4,11 @@
 
 'use strict';
 
-
-var regexPtrn = {
-    float: /[-+]?([0-9]*.[0-9]+|[0-9]+)/g,
-    prologue: /楔子.*/g,
-    chapter: /(第(.+)章.*)/g,
-    chapter2: /(第(.?)百?(.?)十?(.)章)?(第$.?章$)?/g,
-    br: /(?:\\[rn]|[\r\n]+)+/g
-};
-
 var dpData = {
     theme: [{ key: 'default', text: '-- 預設布景 --' }, { key: 'black', text: '黑色布景' }, { key: 'darkGray', text: '深灰布景' }, { key: 'gray', text: '灰色布景' }],
     fontFamily: [{ key: '', text: '-- 預設字體 --' }, { key: 'SimSun', text: '新宋體' }, { key: 'Microsoft_YaHei', text: '微軟雅黑' }, { key: 'Microsoft_JhengHei', text: '微軟正黑' }],
 };
-
+ 
 var lib = {
     getDom: function (id) {
         return document.getElementById(id);
@@ -77,7 +68,6 @@ var lib = {
 
 
 function initFunc() {
-    //init
     var func = document.createElement('div');
     func.id = 'func';
     func.className = 'default';
@@ -118,12 +108,18 @@ function initFunc() {
     }
 }
 
-function txtFmt(text) {
-    var rtn = '';
-    rtn = text.replace(regexPtrn.prologue, '<h1>$1</h1>');
-    rtn = text.replace(regexPtrn.chapter, '<h1>$1</h1>');
-    rtn = text.replace(regexPtrn.br, '</p><p>');
-    return rtn;
+function txtFmt(txt) {
+    txt = '<p>' + txt;
+    txt = txt.replace(/楔子.*/g, '<h1>楔子</h1>');
+    txt = txt.replace(/(第(.+)章.*)/g, '<h1>$1</h1>');
+    txt = txt.replace(/(Chapter(\s+)?(\d+))/g, '<h1>$1</h1>');
+    txt = txt.replace(/(?:\\[rn]|[\r\n]+)+/g, '</p><p>');
+
+    if (txt.indexOf('<p></p>') == 0) {
+        txt = txt.slice('<p></p>'.length);
+    }
+    
+    return txt;
 }
 
 function wrapAndFmt() {
@@ -131,12 +127,41 @@ function wrapAndFmt() {
     pre = document.getElementsByTagName('pre')[0];
     div = lib.createDom('div');
     div.id = 'container';
+
     div.innerHTML = txtFmt(pre.innerHTML);
     document.body.replaceChild(div, pre);
 }
 
+function hello() {
+    console.log("hello");
+    chrome.runtime.sendMessage({
+        greeting: "hello"
+    },
+      function (response) {
+          console.log(response.msg);
+      });
+}
+
+function sendSetCookie() {
+    chrome.runtime.sendMessage({ name: 'cookie' }, function (response) {
+        console.log("content message send, " + response.msg);
+    });
+}
+
+function bookMark() {
+    sendSetCookie();
+}
+
+chrome.runtime.onMessage.addListener(
+    function (message, sender, sendResponse) {
+        if (message.name == 'cookieback') {
+            alert(message.value);
+            debugger;
+        }
+    });
+
 var init = function () {
-    if ($('#func').length < 1) {
+    if (!document.getElementById('func')) {
         wrapAndFmt();
         initFunc();
         console.log('Load txt formatter success');
