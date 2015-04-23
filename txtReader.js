@@ -109,7 +109,6 @@ var lib = {
         return btn;
     },
     jump: function (offset) {
-        //window.offsetTop = offset;
         window.scrollTo(0, offset);
     },
     jumpDom: function (domId) {
@@ -128,7 +127,6 @@ var lib = {
 function setBookmark() {
     var point = window.scrollY;
     config.offset = point;
-    //'江千帆的表情連變都沒有變過'
     chrome.runtime.sendMessage({ action: 'setBookmark', name: lib.parseUrl(), value: point });
     lib.notice(config.lang == 'TW' ? config.l10n.msgTW.saved : config.l10n.msgEN.saved);
 }
