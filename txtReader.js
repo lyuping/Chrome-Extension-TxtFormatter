@@ -21,8 +21,8 @@ var config = {
         btnTW: { fontSize: '字體大小:', lineHeight: '行高:', btnOK: '設定', bookmark: '設定此頁為書籤', loadBookmark: '回到書籤記憶位置', toTop: '回頂部', lang: 'EN' },
 
         msgEN: { noBM: 'No bookmark found',saved: 'Set bookmark successd' },
-        themeEN: [{ key: 'default', text: '-- Default --' }, { key: 'black', text: 'Black' }, { key: 'darkGray', text: 'Dark Gray' }, { key: 'gray', text: 'Gray' }],
-        fontFamilyEN: [{ key: '', text: '-- Default --' }, { key: 'SimSun', text: 'SimSun' }, { key: 'Microsoft_YaHei', text: 'Microsoft YaHei' }, { key: 'Microsoft_JhengHei', text: 'Microsoft JhengHei' }],
+        themeEN: [{ key: 'default', text: '-- Default Theme --' }, { key: 'black', text: 'Black' }, { key: 'darkGray', text: 'Dark Gray' }, { key: 'gray', text: 'Gray' }],
+        fontFamilyEN: [{ key: '', text: '-- Default Font --' }, { key: 'SimSun', text: 'SimSun' }, { key: 'Microsoft_YaHei', text: 'Microsoft YaHei' }, { key: 'Microsoft_JhengHei', text: 'Microsoft JhengHei' }],
         btnEN: { fontSize: 'Font Size:', lineHeight: 'Line Height:', btnOK: 'Submit', bookmark: 'Set Bookmark', loadBookmark: 'Load Bookmark', toTop: 'To Top', lang: '中文' },
 
         theme: [],

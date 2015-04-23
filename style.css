@@ -83,6 +83,8 @@ body.gray {
     z-index: 9;
     background: white;
     width: 90%;
+    line-height: 1;
+    font-size: 12px;
 }
 #func {
     margin: 0 auto;
