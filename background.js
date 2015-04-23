@@ -1,67 +1,70 @@
-﻿/* 
- * Copyright Yuping Lin 2015
- * 
- */
+﻿/**
+ * TxtFormatter
+ * A chrome extension for reading txt.
+ * https://github.com/lyuping/Chrome-Extension-TxtFormatter
+ *
+ * Author: Yuping Lin 
+ * Copyright (c) 2015
+ **/
 
-"use strict";
+'use strict';
+
+var config = {
+    resp: null,
+    name: 'txt-bookmark',
+    url: 'http://www.google.com.tw/'
+}
 
 function LoadBasic(tab) {
-    chrome.tabs.insertCSS(null, { file: 'style.css', "allFrames": true });
-    chrome.tabs.executeScript(null, { file: "txtReader.js" }, function () {
-
+    chrome.tabs.insertCSS(null, { file: 'style.css', 'allFrames': true });
+    chrome.tabs.executeScript(null, { file: 'txtReader.js' }, function () {
+        chrome.runtime.onMessage.addListener(onMessageBgEvt);
     });
 }
 
-chrome.browserAction.onClicked.addListener(LoadBasic);
 
-function setCookie(value, callback) {
+function setCookie(name, value, callback) {
     chrome.cookies.set(
         {
-            url: 'http://www.google.com.tw/',
-            name: 'bookmark',
-            value: value,
+            url: config.url,
+            name: name, //config.name,
+            value: value + '',
             domain: null
         }, function (cookies) {
-            callback(cookies);
+            if(callback){
+                callback(cookies);
+            }
         }
     );
 }
 
-function getCookie(callback) {
+function getCookie(name) {
     chrome.cookies.get({
-        url: 'http://www.google.com.tw/',
-        name: 'bookmark',
+        url: config.url,
+        name: name //config.name,
     },
     function (cookies) {
-        callback(cookies);
-    });
-}
-
-function sendContentMessage(data) {
-    chrome.tabs.query({ active: true }, function (tabs) {
-        //need to use chrome.tabs.sendMessage to send msg to content script 
-        chrome.tabs.sendMessage(tabs[0].id, { name: 'cookieback', value: data }, function (response) {
-            console.log('sendContentMessage callback');
-        });
-    });
-    console.log('sendContentMessage push data: ' + data);
-}
-
-function onMessageEvt(message, sender, sendResponse) {
-    if (message.name == 'cookie') {
-        //cookies
-        var value = 'test123';
-        setCookie(value, function (data) {
-            console.log('set cookie call back');
-            getCookie(function (data) {
-                console.log('get cookie call back');
-                sendContentMessage(data.value);
+        console.log(cookies.value);
+        chrome.tabs.query({ active: true }, function (tabs) {
+            var obj = {
+                value: cookies.value
+            };
+            chrome.tabs.sendMessage(tabs[0].id, obj, function (response) {
             });
-            return true;
-        })
+        });
 
-        sendResponse({ msg: 'background recevied and cookies setting done' });
+    });
+}
+
+
+function onMessageBgEvt(obj, sender, sendResponse) {
+    if (obj.action == 'setBookmark') {
+        sendResponse.tag = 'set';
+        setCookie(obj.name, obj.value);
+    }
+    if (obj.action == 'getBookmark') {
+        getCookie(obj.name);
     }
 }
 
-chrome.runtime.onMessage.addListener(onMessageEvt);
+chrome.browserAction.onClicked.addListener(LoadBasic);
