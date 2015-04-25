@@ -27,10 +27,10 @@ You can set following for better reading txt file
 ![Image of s01](http://ms.ntub.edu.tw/~s9736039/imgHub/s01.png)
 
 #### How to use (如何使用)
-Please enable *allow access to file URLs
-Settings -> extensions -> tick allow access to file URLs
+Please enable allow access to file URLs  
+Settings -> extensions -> tick allow access to file URLs  
 
-請勾選*允許檔案網址
-設定 -> 擴充元件 -> 將允許檔案位址選項打勾
+請勾選*允許檔案網址  
+設定 -> 擴充元件 -> 將允許檔案位址選項打勾  
 
 
