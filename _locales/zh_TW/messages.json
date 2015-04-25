@@ -1,0 +1,63 @@
+﻿{
+    "extName": {
+        "message": "TXT小說閱讀器",
+        "description": "manifest"
+    },
+    "extDescription": {
+        "message": "排版本機的TXT檔案，讓你能舒適地閱讀小說。",
+        "description": "manifest"
+    },
+    "msg_noBM": {
+        "message": "查無書籤紀錄",
+        "description": "show msg"
+    },
+    "msg_saved": {
+        "message": "儲存書籤成功",
+        "description": "show msg"
+    },
+    "theme_default": {
+        "message": "-- 預設布景 --"
+    },
+    "theme_black": {
+        "message": "黑色布景"
+    },
+    "theme_darkGray": {
+        "message": "深灰布景"
+    },
+    "theme_gray": {
+        "message": "灰色布景"
+    },
+    "font_default": {
+        "message": "-- 預設字體 --"
+    },
+    "SimSun": {
+        "message": "新宋體"
+    },
+    "Microsoft_YaHei": {
+        "message": "微軟雅黑"
+    },
+    "Microsoft_JhengHei": {
+        "message": "微軟正黑"
+    },
+    "fontSize": { 
+        "message": "字體大小"
+    },
+    "lineHeight": { 
+        "message": "行高"
+    },
+    "btn_OK": { 
+        "message": "設定"
+    },
+    "btn_bookmark": { 
+        "message": "設定此頁為書籤"
+    },
+    "btn_loadBookmark": { 
+        "message": "回到書籤記憶位置"
+    },
+    "btn_toTop": { 
+        "message": "回頂部"
+    },
+    "btn_lang": { 
+        "message": "EN"
+    }
+}

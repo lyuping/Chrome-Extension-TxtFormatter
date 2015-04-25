@@ -1,0 +1,63 @@
+﻿{
+    "extName": {
+        "message": "Txt Formatter",
+        "description": "manifest"
+    },
+    "extDescription": {
+        "message": "Format your local txt file to read, you can adjust theme, font style and bookmark current reading posistion for better reading novel.",
+        "description": "manifest"
+    },
+    "msg_noBM": {
+        "message": "No bookmark found",
+        "description": "show msg"
+    },
+    "msg_saved": {
+        "message": "Set bookmark successd",
+        "description": "show msg"
+    },
+    "theme_default": {
+        "message": "-- Default Theme --"
+    },
+    "theme_black": {
+        "message": "Black"
+    },
+    "theme_darkGray": {
+        "message": "Dark Gray"
+    },
+    "theme_gray": {
+        "message": "Gray"
+    },
+    "font_default": { 
+        "message": "-- Default Font --"
+    },
+    "SimSun": {
+        "message": "SimSun"
+    },
+    "Microsoft_YaHei": {
+        "message": "Microsoft YaHei"
+    },
+    "Microsoft_JhengHei": {
+        "message": "Microsoft JhengHei"
+    },
+    "fontSize": { 
+        "message": "Font Size:"
+    },
+    "lineHeight": { 
+        "message": "Line Height:"
+    },
+    "btn_OK": { 
+        "message": "Submit"
+    },
+    "btn_bookmark": { 
+        "message": "Set Bookmark"
+    },
+    "btn_loadBookmark": { 
+        "message": "Load Bookmark"
+    },
+    "btn_toTop": { 
+        "message": "To Top"
+    },
+    "btn_lang": { 
+        "message": "中文"
+    }
+}
