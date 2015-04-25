@@ -1,4 +1,5 @@
 # Chrome-Extension-TxtFormatter
+<https://chrome.google.com/webstore/detail/pmihmdfpaajgmbdggejokbhkabhopnmd>
 
 ###A extension for reading formatted txt file in chrome 
 UI language: Traditional Chinese and English
@@ -25,5 +26,11 @@ You can set following for better reading txt file
 #### After (使用後):
 ![Image of s01](http://ms.ntub.edu.tw/~s9736039/imgHub/s01.png)
 
-ps: 目前本擴充元件尚在開發階段, 並無上架至chrome商店
+#### How to use (如何使用)
+Please enable *allow access to file URLs
+Settings -> extensions -> tick allow access to file URLs
+
+請勾選*允許檔案網址
+設定 -> 擴充元件 -> 將允許檔案位址選項打勾
+
 
