@@ -26,13 +26,14 @@ You can set following for better reading txt file
 #### After (使用後):
 ![Image of s01](http://ms.ntub.edu.tw/~s9736039/imgHub/s01.png)
 
+
 #### Installation (如何使用)
-1. Install extenstion from [chrome store]<https://chrome.google.com/webstore/detail/pmihmdfpaajgmbdggejokbhkabhopnmd>
+1. Install extenstion from [chrome store](https://chrome.google.com/webstore/detail/pmihmdfpaajgmbdggejokbhkabhopnmd)
 2. Open chrome://extensions or Settings -> Extensions
-3. tick allow access to file URLs  
+3. tick `allow access to file URLs`  
 
 1. 安裝此擴充元件  
 2. 請勾選允許檔案網址 敲打網址 chrome://extensions 或 設定 -> 擴充元件  
-3. 將允許檔案位址選項打勾    
+3. 將`允許檔案位址選項`打勾    
 
 
