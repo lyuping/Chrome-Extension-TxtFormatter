@@ -54,22 +54,22 @@ p {
 }
 
 
-body.darkGray {
+body.theme_darkGray {
     background: #1d1f21;
     color: #c5c8c6;
 }
 
-body.darkGray #container,
-body.black #container{
+body.theme_darkGray #container,
+body.theme_black #container{
     box-shadow: 0 0 0.5em #2C2F2E inset, 0 0 0 2px #3A3F3E;
 }
 
-body.black {
+body.theme_black {
     background: #081110;
     color: #c5c8c6;
 }
 
-body.gray {
+body.theme_gray {
     background: #eee;
     color: #1d1f21;
 }
@@ -89,6 +89,7 @@ body.gray {
 #func {
     margin: 0 auto;
     padding: 10px;
+    padding-bottom: 0;
     background: #eee;
     border: 1px solid #ccc;
     box-shadow: 0 0 7px #ddd inset;
@@ -96,6 +97,9 @@ body.gray {
 
     #func > * {
         margin-right: 20px;
+        margin-bottom: 10px;
+        line-height: 20px;
+        vertical-align: top;
     }
 
 select, input[type=text], button {
@@ -123,7 +127,8 @@ button {
 }
 
 label {
-    font-size: 16px;
+    color: black;
+    font-size: 12px;
     font-family: Arial;
     padding: 0 5px;
 }
