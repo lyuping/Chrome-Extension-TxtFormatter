@@ -1,7 +1,7 @@
 # Chrome-Extension-TxtFormatter
 <https://chrome.google.com/webstore/detail/pmihmdfpaajgmbdggejokbhkabhopnmd>
 
-###A extension for reading formatted txt file in chrome 
+### A extension for reading formatted txt file in chrome 
 UI language: Traditional Chinese and English
 You can set following for better reading txt file  
 1. Theme color: white(default), black, dark-gray, gray  
@@ -10,7 +10,7 @@ You can set following for better reading txt file
 4. Line height  
 5. Bookmark: will save current page in cookie
 
-###Chrome附加元件，用來閱讀排版過後的txt小說用
+### Chrome附加元件，用來閱讀排版過後的txt小說用
 介面語系支援: 繁體中文, 英文
 可以設置以下功能來更良好地閱讀txt小說  
 1. 布景: 白色(預設), 黑底, 深灰底, 灰底  
@@ -20,11 +20,8 @@ You can set following for better reading txt file
 5. 書籤: 可以記錄當前觀看位置
 
 
-#### Before you use this extension (使用前):
-![Image of s02](http://ms.ntub.edu.tw/~s9736039/imgHub/s02.png)
-
 #### After (使用後):
-![Image of s01](http://ms.ntub.edu.tw/~s9736039/imgHub/s01.png)
+![Image of s01](https://lh3.googleusercontent.com/NTXwHs57Yuua0APyksIkJR1Roea3VAriG_-VRu9R2gkwckU8178CmdcCLOnBJ-1KAnqGVcMP6KA=s640-h400-e365)
 
 
 #### Installation (如何使用)
